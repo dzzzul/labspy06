@@ -1,5 +1,8 @@
-#latihan lambda
- python
+# praktikum 6 lambda
+#LATIHAN LAMBDA
+
+```
+python
 import math
 def a(x):
     return x**2
@@ -20,10 +23,12 @@ def d(s):
     return "".join(set(s))
     d = lambda s: "".join(set(s))
 print(d("back back back"))
+```
 
-=====================================================================
-'''python
-dbm = {} 
+## Praktikum 6 fucntion
+source code:
+```python
+data_base = {} 
 
 def ruler():
     print(73*"=")
@@ -46,47 +51,47 @@ def tambah():
     nilaiUTS   = int(input("Nilai UTS   : "))
     nilaiUAS   = int(input("Nilai UAS   : "))
     nilaiAkhir = (nilaiTugas * 30/100) + (nilaiUTS * 35/100) + (nilaiUAS * 35/100)
-    dbm[nama] = [nim, nilaiTugas, nilaiUTS, nilaiUAS, nilaiAkhir]
+    data_base[nama] = [nim, nilaiTugas, nilaiUTS, nilaiUAS, nilaiAkhir]
     print(f"Berhasil menambahkan data '{nama}' dengan NIM : {nim}!")
 
 def Tampilkan():
     print("============================Daftar Mahasiswa============================")
-    if len(dbm) <= 0:  
+    if len(data_base) <= 0:  
         nodata()
     else:
         no = 0
         header()
-        for data in dbm.items():
+        for data in data_base.items():
             no += 1 
             print(f"| {no:>2} | {data[1][0]:<9} | {data[0]:<18} | {data[1][1]:>5} | {data[1][2]:>5} | {data[1][3]:>5} | {data[1][4]:>7.2f} |")               
         ruler() 
 
 def ubah():
     print("Ubah Data Mahasiswa berdasarkan Nama")
-    if len(dbm) <= 0:  
+    if len(data_base) <= 0:  
         nodata()
 
     else:
         nama = input("Masukan Nama : ") 
-        if nama in dbm.keys():
+        if nama in data_base.keys():
             print(f"Data ditemukan!")
             print(25*"=")
             print(f"Nama        : {nama}")
-            print(f"NIM         : {dbm[nama][0]}")
-            print(f"Nilai Tugas : {dbm[nama][1]}")
-            print(f"Nilai UTS   : {dbm[nama][2]}")
-            print(f"Nilai UAS   : {dbm[nama][3]}")
+            print(f"NIM         : {data_base[nama][0]}")
+            print(f"Nilai Tugas : {data_base[nama][1]}")
+            print(f"Nilai UTS   : {data_base[nama][2]}")
+            print(f"Nilai UAS   : {data_base[nama][3]}")
             print(25*"=")
             print("1. Nama\n2. NIM\n3. Nilai\n0. Kembali")
             tanya = int(input("Apa yang ingin diubah? [1-3] : "))
             if tanya == 1:
                 _nama = input("Masukan Nama Baru : ")
-                dbm[_nama] = dbm.pop(nama)
+                data_base[_nama] = data_base.pop(nama)
                 print("Berhasil merubah Nama! ")
 
             elif tanya == 2:
                 _nim = input("Masukan Nim Baru : ")
-                dbm[nama][0] = _nim
+                data_base[nama][0] = _nim
                 print("Berhasil merubah NIM!")
 
             elif tanya == 3:
@@ -94,7 +99,7 @@ def ubah():
                 _nilaiUTS = int(input("Masukan Nilai UTS Baru : "))
                 _nilaiUAS = int(input("Masukan Nilai UAS Baru : "))
                 _nilaiAkhir = _nilaiTugas * 30/100 + _nilaiUTS * 35/100 + _nilaiUAS * 35/100
-                dbm[nama][1:4] = _nilaiTugas, _nilaiUTS, _nilaiUAS, _nilaiAkhir
+                data_base[nama][1:4] = _nilaiTugas, _nilaiUTS, _nilaiUAS, _nilaiAkhir
                 print("Berhasil merubah data nilai!")
             elif tanya == 0:
                 pass
@@ -107,13 +112,13 @@ def ubah():
 
 def hapus():
     print("Hapus Data Mahasiswa berdasarkan Nama")
-    if len(dbm) <= 0:  
+    if len(data_base) <= 0:  
         nodata()
 
     else:
         nama = input("Masukan nama : ")
-        if(nama in dbm):
-            del dbm[nama]
+        if(nama in data_base):
+            del data_base[nama]
             print(f"Data {nama} berhasil dihapus!")
         else:
             print(f"Data {nama} tidak ditemukan!")
@@ -144,5 +149,46 @@ while True:
         loop = False 
 
     else:
-        print(f"Menu '{menu}' tidak ada! Silahkan masukan [0-4]")
-        '''
+        print(f"Menu '{menu}' yang anda pilih tidak ada  [0-4]")
+
+```
+penjelasan :
+ 
+ 1. Deklarasi Dictionary sebagai database
+ ```python
+data_base = {} 
+ ```
+ 2. Membuat Function tambahan agar bisa dipanggil saat dibutuhkan
+ 3. Membuat Function Program
+    Function **ubah()** dijalankan berdasarkan nama
+- Memasukan nama sebagai key dan akan memunculkan isi data dari key tersebut
+- Jika salah memasukkan nama, maka akan mengeluarkan "data nama tidak ditemukan!"
+- Selanjutnya akan diberi pilihan apa yang ingin diubah, jika ingin membatalkan maka ketik 0
+- Jika salah memasukkan pilihan maka mengeluarkan "Pilihan input tidak ada! Silahkan masukan [1-3]"
+- Menggunakan infinite loop while True
+- Apabila salah memasukkkan inputan maka akan muncul "Menu 'menu' tidak ada!"
+- Jika benar maka function yang sudah dibuat akan dijalankan
+
+
+        inputan program lambda
+![gambar 1](pict/lambda.PNG)
+
+=======================================
+
+        outputan program lambda
+![gambar 2](pict/outlambda.PNG)
+
+=======================================
+
+        menu outputan program function
+![gambar 3](pict/menudef.PNG)
+
+=======================================
+
+        tampilan nila dari program function
+![gambar 4](tampilan/lambda.PNG)
+
+=======================================
+
+
+
