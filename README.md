@@ -186,7 +186,7 @@ data_base = {}
 =======================================
 
         tampilan nila dari program function
-![gambar 4](tampilan/lambda.PNG)
+![gambar 4](pict/tampilan.PNG)
 
 =======================================
 
